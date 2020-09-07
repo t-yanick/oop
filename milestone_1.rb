@@ -11,7 +11,28 @@ def display_board(the_board)
   board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
   display_board(board)
   
-
+  puts "Turn 1: Guess the Hidden Number | Hint - Select 0-8"
+  
+  board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+  display_board(board)
+  #update data in an array
+  position = gets.strip
+  token = "x"
+  board[position.to_i] = token
+  
+  puts "Turn 2"
+  board = [" ", " ", " ", " ", "x", " ", " ", " ", "0"]
+  display_board(board)
+  position = gets.strip
+  token = "x"
+  board[position.to_i] = token
+  
+  puts "Turn 3"
+  board = [" ", " ", "x", " ", "x", " ", " ", " ", "0"]
+  display_board(board)
+  position = gets.strip
+  token = "x"
+  board[position.to_i] = token
 
 
   
