@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/PerceivedComplexity
 def display_board(the_board)
     puts " #{the_board[0]}| #{the_board[1]}| #{the_board[2]}"
     puts "..........."
@@ -35,4 +36,4 @@ def display_board(the_board)
   board[position.to_i] = token
 
 
-  
+# rubocop:enable Metrics/PerceivedComplexity
