@@ -1,8 +1,9 @@
+# rubocop:disable Metrics/PerceivedComplexity
 # rubocop:disable Metrics/CyclomaticComplexity
 # rubocop:disable Metrics/PerceivedComplexity
 # rubocop:disable Metrics/AbcSize
 # rubocop:disable Metrics/MethodLength
-class Game
+class Tic
   attr_accessor :player, :player1
   def initialize(player, player1)
 	  @player = player
@@ -62,7 +63,7 @@ while choice == "y" do
 	end
 	puts ""
 
-	game = Game.new(player, player1)
+	game = Tic.new(player, player1)
 	turn = true
 	is_playing = true
 
@@ -106,6 +107,7 @@ while choice == "y" do
   end
 end
 
+# rubocop:enable Metrics/PerceivedComplexity
 # rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/MethodLength
 # rubocop:enable Metrics/CyclomaticComplexity
