@@ -72,4 +72,8 @@ class Board
     @row3 = row(@box7, @box8, @box9)
     puts "#{@row1}\n #{separation}\n #{@row2}\n #{separation}\n #{@row3}\n "
   end
+
+  def player_choice(the_board, box)
+    board_state_array[box - 1] = 'X'
+  end
 end
