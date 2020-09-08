@@ -4,24 +4,24 @@
 # rubocop:disable Metrics/MethodLength
 class Game
   attr_accessor :player, :player1
-	def initialize(player, player1)
-		@player = player
-		@player1 = player1
-		@board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-		@winner = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
-	end
+  def initialize(player, player1)
+	  @player = player
+	  @player1 = player1
+	  @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	  @winner = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+  end
 
-	def display_board
-		puts "  #{@board[0]} | #{@board[1]} | #{@board[2]}"
-		puts "  --+---+---"
-		puts "  #{@board[3]} | #{@board[4]} | #{@board[5]}"
-		puts "  --+---+---"
-		puts "  #{@board[6]} | #{@board[7]} | #{@board[8]}"
-		puts ""
-	end
+  def display_board
+	  puts "  #{@board[0]} | #{@board[1]} | #{@board[2]}"
+	  puts "  --+---+---"
+	  puts "  #{@board[3]} | #{@board[4]} | #{@board[5]}"
+	  puts "  --+---+---"
+	  puts "  #{@board[6]} | #{@board[7]} | #{@board[8]}"
+	  puts ""
+  end
 
-	def add_positions(piece, tic_position)
-		if tic_position < 1 || tic_position > 9 || @board[tic_position-1] == "X" || @board[tic_position-1] == "O"
+  def add_positions(piece, tic_position)
+	  if tic_position < 1 || tic_position > 9 || @board[tic_position - 1] == "X" || @board[tic_position - 1] == "O"
 			false
 		else
 			@board[tic_position-1] = piece
@@ -29,11 +29,11 @@ class Game
 		end
 	end
 
-	def check_winner
-		@winner.each do |tic_position|
-			if @board[tic_position[0]] == @board[tic_position[1]] && @board[tic_position[1]] == @board[tic_position[2]] && (@board[tic_position[0]] == "X" || @board[tic_position[0]] == "O")
-				if @board[tic_position[0]] == "X"
-					puts "Hello #{player} have won the game!!!"
+  def check_winner
+	  @winner.each do |tic_position|
+		  if @board[tic_position[0]] == @board[tic_position[1]] && @board[tic_position[1]] == @board[tic_position[2]] && (@board[tic_position[0]] == "X" || @board[tic_position[0]] == "O")
+		    if @board[tic_position[0]] == "X"
+				  puts "Hello #{player} have won the game!!!"
 				else
 					puts "Hello #{player1} have won the game!!!"
 				end
@@ -101,9 +101,9 @@ while choice == "y" do
 # User Choice to restart the game or not
 	choice = nil
 	while choice != "y" && choice != "n"
-		puts "Would you like to start a new game?(y/n)"
+	  puts "Would you like to start a new game?(y/n)"
 		choice = gets.strip.downcase
-	end
+  end
 end
 
 # rubocop:enable Metrics/AbcSize
