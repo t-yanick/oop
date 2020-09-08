@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop: enable MetricComplexity
 class Game
 	attr_accessor :player, :player1
 	def initialize(player, player1)
@@ -16,22 +18,22 @@ class Game
 		puts ""
 	end
 
-	def add_positions(piece, pos)
-		if pos < 1 || pos > 9 || @board[pos-1] == "X" || @board[pos-1] == "O"
+	def add_positions(piece, tic_position)
+		if tic_position < 1 || tic_position > 9 || @board[tic_position-1] == "X" || @board[tic_position-1] == "O"
 			false
 		else
-			@board[pos-1] = piece
+			@board[tic_position-1] = piece
 			true
 		end
 	end
 
 	def check_winner
-		@winner.each do |pos|
-			if @board[pos[0]] == @board[pos[1]] && @board[pos[1]] == @board[pos[2]] && (@board[pos[0]] == "X" || @board[pos[0]] == "O")
-				if @board[pos[0]] == "X"
-					puts "#{player} have won the game!!!"
+		@winner.each do |tic_position|
+			if @board[tic_position[0]] == @board[tic_position[1]] && @board[tic_position[1]] == @board[tic_position[2]] && (@board[tic_position[0]] == "X" || @board[tic_position[0]] == "O")
+				if @board[tic_position[0]] == "X"
+					puts "Hello #{player} have won the game!!!"
 				else
-					puts "#{player1} have won the game!!!"
+					puts "Hello #{player1} have won the game!!!"
 				end
 				return true
 			end
@@ -42,18 +44,19 @@ end
 
 choice = "y"
 while choice == "y" do
-	puts "Welcome to Tic-Tac-Toe"
+	puts "Welcome to Tic-Tac-Toe Game"
 	puts ""
 
-	puts "Enter player X's name:"
-	player = gets.chomp
+	puts "Please Enter Your name:"
+	player = gets.strip
 	puts ""
 
-	puts "Enter player O's name:"
-	player1 = gets.chomp
-	while player1 == player do
+	puts "Please Enter opponent's name:"
+  player1 = gets.strip
+  # check duplicate player entry
+  while player1 == player do
 		puts "#{player} is already taken. Please enter a valid name:"
-		player1 = gets.chomp
+		player1 = gets.strip
 	end
 	puts ""
 
@@ -69,18 +72,18 @@ while choice == "y" do
 		if turn
 			turn = false
 			while true do
-				puts "It is #{game.player}'s - (X) turn. Enter a valid position(1-9)"
-				pos = gets.chomp.to_i
-				if game.add_positions("X", pos)
+				puts "#{game.player}. Turn 1: Enter a valid position(1-9)"
+				tic_position = gets.strip.to_i
+				if game.add_positions("X", tic_position)
 					break
 				end
 			end
 		else
 			turn = true
 			while true do
-				puts ("It is #{game.player1}'s - (O) turn. Enter a valid position(1-9)")
-				pos = gets.chomp.to_i
-				if game.add_positions("O", pos)
+				puts "#{game.player1} Turn 2: Enter a valid position(1-9)"
+				tic_position = gets.strip.to_i
+				if game.add_positions("O", tic_position)
 					break
 				end
 			end
@@ -93,11 +96,12 @@ while choice == "y" do
 			is_playing = false
 		end
 	end
-
+# User Choice to restart the game or not
 	choice = nil
 	while choice != "y" && choice != "n"
 		puts "Would you like to start a new game?(y/n)"
-		choice = gets.chomp.downcase
+		choice = gets.strip.downcase
 	end
-
 end
+
+# rubocop: disable MetricComplexity
