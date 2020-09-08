@@ -1,4 +1,5 @@
 # rubocop : disable Layout/LineLength
+# rubocop : disable Metrics/BlockNesting
 
 class Tic
   attr_accessor :player, :player1
@@ -103,3 +104,4 @@ while choice == 'y'
 end
 
 # rubocop : enable Layout/LineLength
+# rubocop : enable Metrics/BlockNesting
