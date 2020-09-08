@@ -1,3 +1,5 @@
+# rubocop : disable Layout/LineLength
+
 class Tic
   attr_accessor :player, :player1
   def initialize(player, player1)
@@ -99,3 +101,5 @@ while choice == 'y'
     choice = gets.strip.downcase
   end
 end
+
+# rubocop : enable Layout/LineLength
