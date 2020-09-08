@@ -72,7 +72,6 @@ while choice == 'y'
 
     if turn 
       turn = false
-      # while true
       loop do
         puts "#{game.player}. Turn 1: Enter a valid position(1-9)"
         tic_position = gets.strip.to_i
