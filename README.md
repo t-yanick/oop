@@ -28,7 +28,7 @@ If nobody wins after all positions have a symbol it will be a draw Each player o
 # Game instructions
 The player has the option to play or to exit. If the player decides to play, these steps follow:
 
-Player one is the symbol 'X' and player two is the symbol 'O' From the below screen, Playes can add thier Names
+Player one is the symbol 'X' and player two is the symbol 'O' From the below screen, Players can add thier Names
 
 <img src = "images/1.png">
 
