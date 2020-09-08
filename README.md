@@ -11,7 +11,7 @@ Tic-tac-toe (American English), noughts and crosses (Commonwealth English), or X
 
 # Open Terminal
 
-Run git clone https://github.com/happiguru/tic-tac-toe/tree/game_logic
+Run git clone https://github.com/t-yanick/oop/tree/milestone_1
 
 Run cd library
 
@@ -62,7 +62,7 @@ Once the game finish, the players have the option to restart game or exit
 🤝 Contributing
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the issues page.
+Feel free to check the issues page https://github.com/t-yanick/oop/issues.
 
 # Show your support
 Give a ⭐️ if you like this project!
