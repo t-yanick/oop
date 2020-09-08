@@ -28,7 +28,7 @@ If nobody wins after all positions have a symbol it will be a draw Each player o
 # Game instructions
 The player has the option to play or to exit. If the player decides to play, these steps follow:
 
-Player one is the symbol 'X' and player two is the symbol 'O'
+Player one is the symbol 'X' and player two is the symbol 'O' From the below screen, Playes can add thier Names
 
 <img src = "images/1.png">
 
@@ -59,7 +59,7 @@ Once the game finish, the players have the option to restart game or exit
 - Twitter: [@ElTazoh](https://twitter.com/ElTazoh)
 - Linkedin: [Tazoh Yanick](https://linkedin.com/in/tazoh-yanick-5a978764)
 
-🤝 Contributing
+### 🤝 Contributing
 Contributions, issues and feature requests are welcome!
 
 Feel free to check the issues page https://github.com/t-yanick/oop/issues.
