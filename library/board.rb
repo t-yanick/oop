@@ -27,8 +27,7 @@ class Tic
 
   def check_winner
     @winner.each do |tic_position|
-      unless @board[tic_position[0]] == @board[tic_position[1]] && 
-        @board[tic_position[1]] == @board[tic_position[2]] && (@board[tic_position[0]] == 'X' || @board[tic_position[0]] == 'O')
+      unless @board[tic_position[0]] == @board[tic_position[1]] && @board[tic_position[1]] == @board[tic_position[2]] && (@board[tic_position[0]] == 'X' || @board[tic_position[0]] == 'O')
         next
       end
 
@@ -70,7 +69,7 @@ while choice == 'y'
     # Printing board to the screen
     game.display_board
 
-    if turn 
+    if turn
       turn = false
       loop do
         puts "#{game.player}. Turn 1: Enter a valid position(1-9)"
