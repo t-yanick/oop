@@ -100,5 +100,4 @@ while choice == 'y'
     choice = gets.strip.downcase
   end
 end
-
 # rubocop:enable Metrics/PerceivedComplexity
