@@ -48,13 +48,11 @@ Once the game finish, the players have the option to restart game or exit
 
 # Authors
 👤 Bbosa Muhamood
-
-### Bbosa Muhamood
 - Github: [@bmuhamood](https://github.com/bmuhamood)
 - Twitter: [@croixtechfirm](https://twitter.com/croixtechfirm)
 - Linkedin: [Bbosa Muhamood](https://www.linkedin.com/in/bbosa-muhamood-06845576/)
 
-### Tazoh Yanick Tazoh
+👤 Tazoh Yanick Tazoh
 - Github: [@t-yanick](https://github.com/t-yanick)
 - Twitter: [@ElTazoh](https://twitter.com/ElTazoh)
 - Linkedin: [Tazoh Yanick](https://linkedin.com/in/tazoh-yanick-5a978764)
