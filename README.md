@@ -75,5 +75,5 @@ Give a ⭐️ if you like this project!
 - TheOdinProject
 - Ruby
 
-📝 License
+## 📝 License
 This project is MIT licensed.
