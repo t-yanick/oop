@@ -69,9 +69,10 @@ while choice == 'y'
     # Printing board to the screen
     game.display_board
 
-    if turn
+    if turn 
       turn = false
-      while true
+      # while true
+      loop do
         puts "#{game.player}. Turn 1: Enter a valid position(1-9)"
         tic_position = gets.strip.to_i
         break if game.add_positions('X', tic_position)
