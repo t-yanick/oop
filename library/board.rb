@@ -76,4 +76,8 @@ class Board
   def player_choice(the_board, box)
     board_state_array[box - 1] = 'X'
   end
+
+  def victory?
+    @victory = true if @box1 == @box4 && @box1 == @box7
+  end
 end
