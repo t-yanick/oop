@@ -67,13 +67,13 @@ Feel free to check the issues page https://github.com/t-yanick/oop/issues.
 # Show your support
 Give a ⭐️ if you like this project!
 
-# Acknowledgments
-Microverse
-Free Code Camp
-Codecademy
-GitHub
-TheOdinProject
-Ruby
+### Acknowledgments
+- Microverse
+- Free Code Camp
+- Codecademy
+- GitHub
+- TheOdinProject
+- Ruby
 
 📝 License
 This project is MIT licensed.
