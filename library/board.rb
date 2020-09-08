@@ -1,83 +1,103 @@
-# rubocop:disable Metrics/PerceivedComplexity
-# class Board
-def display_board(the_board)
-  #   puts " #{the_board[0]}| #{the_board[1]}| #{the_board[2]}"
-  #   puts "..........."
-  #   puts " #{the_board[3]}| #{the_board[4]}| #{the_board[5]}"
-  #   puts "..........."
-  #   puts " #{the_board[6]}| #{the_board[7]}| #{the_board[8]}"
-  # end
-  
-  # puts "Welcome to Tic Tac Toe Game"
-  
-  # board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-  # display_board(board)
-  
-  # puts "Guess 1: Guess the Hidden Number | Hint - Select 0-8"
-  
-  # board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-  # display_board(board)
-  #update data in an array
+class Game
+	attr_accessor :player, :player1
+	def initialize(player, player1)
+		@player = player
+		@player1 = player1
+		@board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+		@winner = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+	end
 
-  # position = gets.strip
-  # token = "x"
-  # board[position.to_i] = token
-  
-  # puts "Guess 2"
-  # board = [" ", " ", " ", " ", "x", " ", " ", " ", "0"]
-  # display_board(board)
-  # position = gets.strip
-  # token = "x"
-  # board[position.to_i] = token
-  
-  # puts "Guess 3"
-  # board = [" ", " ", "x", " ", "x", " ", " ", " ", "0"]
-  # display_board(board)
-  # position = gets.strip
-  # token = "x"
-  # board[position.to_i] = token
+	def display_board
+		puts "  #{@board[0]} | #{@board[1]} | #{@board[2]}"
+		puts "  --+---+---"
+		puts "  #{@board[3]} | #{@board[4]} | #{@board[5]}"
+		puts "  --+---+---"
+		puts "  #{@board[6]} | #{@board[7]} | #{@board[8]}"
+		puts ""
+	end
 
-# end
+	def add_positions(piece, pos)
+		if pos < 1 || pos > 9 || @board[pos-1] == "X" || @board[pos-1] == "O"
+			false
+		else
+			@board[pos-1] = piece
+			true
+		end
+	end
 
+	def check_winner
+		@winner.each do |pos|
+			if @board[pos[0]] == @board[pos[1]] && @board[pos[1]] == @board[pos[2]] && (@board[pos[0]] == "X" || @board[pos[0]] == "O")
+				if @board[pos[0]] == "X"
+					puts "#{player} have won the game!!!"
+				else
+					puts "#{player1} have won the game!!!"
+				end
+				return true
+			end
+		end
+		return false
+	end
+end
 
-# rubocop:enable Metrics/PerceivedComplexity
+choice = "y"
+while choice == "y" do
+	puts "Welcome to Tic-Tac-Toe"
+	puts ""
 
+	puts "Enter player X's name:"
+	player = gets.chomp
+	puts ""
 
-class Board
+	puts "Enter player O's name:"
+	player1 = gets.chomp
+	while player1 == player do
+		puts "#{player} is already taken. Please enter a valid name:"
+		player1 = gets.chomp
+	end
+	puts ""
 
-  def initialize(the_board)
-    @box1 = the_board[1]
-    @box2 = the_board[2]
-    @box3 = the_board[3]
-    @box4 = the_board[4]
-    @box5 = the_board[5]
-    @box6 = the_board[6]
-    @box7 = the_board[7]
-    @box8 = the_board[8]
-    @box9 = the_board[9]
-    @victory = false
-  end
+	game = Game.new(player, player1)
+	turn = true
+	is_playing = true
 
-  def row(r1, r2, r3)
-    " #{r1} | #{r2} | #{r3} "
-  end
+	# Game loop
+	while is_playing do
+		# Printing board to the screen
+		game.display_board
 
-  def separation
-    "--- --- ---"
-  end
+		if turn
+			turn = false
+			while true do
+				puts "It is #{game.player}'s - (X) turn. Enter a valid position(1-9)"
+				pos = gets.chomp.to_i
+				if game.add_positions("X", pos)
+					break
+				end
+			end
+		else
+			turn = true
+			while true do
+				puts ("It is #{game.player1}'s - (O) turn. Enter a valid position(1-9)")
+				pos = gets.chomp.to_i
+				if game.add_positions("O", pos)
+					break
+				end
+			end
+		end
 
-  def display_board
-    @row1 = row(@box1, @box2, @box3)
-    @row2 = row(@box4, @box5, @box6)
-    @row3 = row(@box7, @box8, @box9)
-    puts "#{@row1}\n #{separation}\n #{@row2}\n #{separation}\n #{@row3}\n "
-  end
+        if game.check_winner
+            puts ""
+            game.display_board
+            puts ""
+			is_playing = false
+		end
+	end
 
-  def player_choice(the_board, box)
-    board_state_array[box - 1] = 'X'
-  end
+	choice = nil
+	while choice != "y" && choice != "n"
+		puts "Would you like to start a new game?(y/n)"
+		choice = gets.chomp.downcase
+	end
 
-  def victory?
-    @victory = true if @box1 == @box4 && @box1 == @box7
-  end
 end
