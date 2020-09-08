@@ -7,9 +7,9 @@ Tic-tac-toe (American English), noughts and crosses (Commonwealth English), or X
 
 # Prerequisites
 - Browser (Google Chrome, Mozilla Firefox, Safari or any other browser)
-- Setup
 
-# Open Terminal
+# Setup
+Open Terminal
 
 Run git clone https://github.com/t-yanick/oop/tree/milestone_1
 
@@ -40,7 +40,7 @@ The players take turns in order to try to make an uninterrupted row, column or d
 
 The player which does that first wins!
 
-<img src = "images/2.png">
+<img src = "images/3.png">
 
 If all spaces are chosen and there is no winner, it is considered a draw
 
