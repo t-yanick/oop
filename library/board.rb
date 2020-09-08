@@ -27,7 +27,8 @@ class Tic
 
   def check_winner
     @winner.each do |tic_position|
-      unless @board[tic_position[0]] == @board[tic_position[1]] && @board[tic_position[1]] == @board[tic_position[2]] && (@board[tic_position[0]] == 'X' || @board[tic_position[0]] == 'O')
+      unless @board[tic_position[0]] == @board[tic_position[1]] && 
+        @board[tic_position[1]] == @board[tic_position[2]] && (@board[tic_position[0]] == 'X' || @board[tic_position[0]] == 'O')
         next
       end
 
