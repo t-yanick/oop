@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# rubocop : disable Layout/LineLength
+# rubocop : disable Metrics/BlockNesting
 class Tic
   attr_accessor :player, :player1
   def initialize(player, player1)
