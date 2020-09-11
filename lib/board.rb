@@ -67,9 +67,7 @@ while choice == 'y'
   turn = true
   is_playing = true
 
-  # Game loop
   while is_playing
-    # Printing board to the screen
     game.display_board
 
     if turn
@@ -95,7 +93,6 @@ while choice == 'y'
     puts ''
     is_playing = false
   end
-  # User Choice to restart the game or not
   choice = nil
   while choice != 'y' && choice != 'n'
     puts 'Would you like to start a new game?(y/n)'
