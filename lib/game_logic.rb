@@ -96,7 +96,7 @@ while choice == 'y'
   choice = nil
   while choice != 'y' && choice != 'n'
     puts 'Would you like to start a new game?(y/n)'
-    choice = gets.strip.downcase
+    choice = gets.strip!
   end
 end
 
