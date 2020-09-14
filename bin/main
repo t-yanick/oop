@@ -1,4 +1,5 @@
-#!/usr/bin/env ruby
+# rubocop : disable Layout/LineLength
+# rubocop : disable Metrics/BlockNesting
 require_relative '../lib/player'
 require_relative '../lib/tic'
 def tictac
@@ -66,3 +67,6 @@ def show_draw(board)
 end
 
 tictac
+
+# rubocop : enable Layout/LineLength
+# rubocop : enable Metrics/BlockNesting
