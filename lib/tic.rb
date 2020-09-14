@@ -1,6 +1,3 @@
-# rubocop : disable Layout/LineLength
-# rubocop : disable Metrics/BlockNesting
-
 class Tic
   attr_reader :winner
   def initialize
@@ -68,6 +65,3 @@ class Tic
     true
   end
 end
-
-# rubocop : enable Layout/LineLength
-# rubocop : enable Metrics/BlockNesting
