@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # rubocop : disable Layout/LineLength
 # rubocop : disable Metrics/BlockNesting
 require_relative '../lib/player'
@@ -6,7 +7,7 @@ def tictac
   board = Tic.new
   player_x = Player.new('', 'X')
   player_o = Player.new('', 'O')
-  game_procedure
+  instructions
   set_players(player_x, player_o)
   9.times do |time|
     player = time.odd? ? player_x : player_o
@@ -20,29 +21,28 @@ def tictac
   show_draw(board)
 end
 
-def game_procedure
-  puts "\nWelcome to Tic Tac Toe, Please Share the Game!\n"\
+def instructions
+  puts "\nWelcome to Tic Tac Toe Game!\n"\
   "\n 1 | 2 | 3 \n-----------\n 4 | 5 | 6 \n-----------\n 7 | 8 | 9 \n"
 end
-puts ''
 
 def set_players(player_x, player_o)
-  puts "\nFirst Player name:"
-  player_x.name = gets.chomp!
-  puts "\nSecond Player Name:"
-  player_o.name = gets.chomp!
+  puts "\nPlayer X name:"
+  player_x.name = gets.chomp
+  puts "\nPlayer O name:"
+  player_o.name = gets.chomp
 end
 
 def ask_move(player, board)
-  puts "\nPlayer one turn #{player}!"
-  puts "\nPredict a number between 1 and 9"
+  puts "\nMake your move #{player}!"
+  puts "\nYou can select a number between 1 and 9"
   puts board.current_board
 end
 
 def make_input(player, board)
   valid = false
-  taken_message = 'The board position already taken, Please chose another position'
-  invalid_message = 'Please enter a valid numer'
+  taken_message = 'The position is already taken. Try again with other position.'
+  invalid_message = 'That input is invalid. Try again using a number between 1 and 9.'
   until valid
     input = gets.chomp.to_i
     if input.between?(1, 9) && player.check_position?(input, board)
@@ -56,14 +56,15 @@ def make_input(player, board)
 end
 
 def show_winner(player, board)
-  puts "\nYou have won the round #{player}!!!"
+  puts "\nYou win #{player}!!!"
   puts board.current_board
+  puts "\nGame Over."
 end
 
 def show_draw(board)
   puts "\nThe game is draw!"
   puts board.current_board
-  puts "\nGame Ended."
+  puts "\nGame Over."
 end
 
 tictac
