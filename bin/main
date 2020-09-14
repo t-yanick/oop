@@ -58,15 +58,13 @@ def make_input(player, board)
 end
 
 def show_winner(player, board)
-  puts "\nYou win #{player}!!!"
+  puts "\nYou have won the game #{player}!!!"
   puts board.current_board
-  puts "\nGame Over."
 end
 
 def show_draw(board)
-  puts "\nThe game is draw!"
+  puts "\nThis is a draw game"
   puts board.current_board
-  puts "\nGame Over."
 end
 
 play
