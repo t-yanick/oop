@@ -1,113 +1,75 @@
 #!/usr/bin/env ruby
-# rubocop : disable Layout/LineLength
-# rubocop : disable Metrics/BlockNesting
 
-require_relative '../lib/tic.rb'
-require_relative '../lib/player.rb'
+require_relative '../lib/player'
+require_relative '../lib/tic'
 
-class Tic
-  attr_accessor :player, :player1
-  def initialize(player, player1)
-    @player = player
-    @player1 = player1
-    @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    @winner = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
-  end
-
-  def display_board
-    puts "  #{@board[0]} | #{@board[1]} | #{@board[2]}"
-    puts '  --+---+---'
-    puts "  #{@board[3]} | #{@board[4]} | #{@board[5]}"
-    puts '  --+---+---'
-    puts "  #{@board[6]} | #{@board[7]} | #{@board[8]}"
-    puts ''
-  end
-
-  def display_board
-    @board.all?(String)
-  end
-
-  def add_positions(piece, tic_position)
-    if tic_position < 1 || tic_position > 9 || @board[tic_position - 1] == 'X' || @board[tic_position - 1] == 'O'
-      false
-    else
-      @board[tic_position - 1] = piece
-      true
+def play
+  board = Tic.new
+  player_x = Player.new('', 'X')
+  player_o = Player.new('', 'O')
+  instructions
+  set_players(player_x, player_o)
+  9.times do |time|
+    player = time.odd? ? player_x : player_o
+    ask_move(player.name, board)
+    player.make_move(make_input(player, board), board)
+    if board.winner
+      show_winner(player.name, board)
+      return nil
     end
   end
-
-  def check_winner
-    @winner.each do |tic_position|
-      unless @board[tic_position[0]] == @board[tic_position[1]] && @board[tic_position[1]] == @board[tic_position[2]] && (@board[tic_position[0]] == 'X' || @board[tic_position[0]] == 'O')
-        next
-      end
-
-      if @board[tic_position[0]] == 'X'
-        puts "Hello #{player} have won the game!!!"
-      elsif
-        puts "Hello #{player1} have won the game!!!"
-      end
-      return true
-    end
-  rescue
-  else @board.all? == false && @board[tic_position[0]] == 'X'
-        puts "You've both tied, #{player} and #{player1}"
-    end
-  end
-
-choice = 'y'
-while choice == 'y'
-  puts 'Welcome to Tic-Tac-Toe Game'
-  puts ''
-
-  puts 'Please Enter Your name:'
-  player = gets.strip!
-  puts ''
-
-  puts "Please Enter opponent's name:"
-  player1 = gets.strip!
-  while player1 == player
-    puts "#{player} is already taken. Please enter a valid name:"
-    player1 = gets.strip!
-  end
-  puts ''
-
-  game = Tic.new(player, player1)
-  turn = true
-  is_playing = true
-
-  while is_playing
-    game.display_board
-
-    if turn
-      turn = false
-      loop do
-        puts "#{game.player}. Turn 1: Enter a valid position(1-9)"
-        tic_position = gets.strip.to_i
-        break if game.add_positions('X', tic_position)
-      end
-    else
-      turn = true
-      loop do
-        puts "#{game.player1} Turn 2: Enter a valid position(1-9)"
-        tic_position = gets.strip.to_i
-        break if game.add_positions('O', tic_position)
-      end
-    end
-
-    next unless game.check_winner
-
-    puts ''
-    game.display_board
-    puts ''
-    is_playing = false
-  end
-  choice = nil
-  while choice != 'y' && choice != 'n'
-    puts 'Would you like to start a new game?(y/n)'
-    choice = gets.strip.downcase!
-  end
+  show_draw(board)
 end
+
+def instructions
+  puts "\nWelcome to Tic Tac Toe Game!\n"\
+  "\n 1 | 2 | 3 \n-----------\n 4 | 5 | 6 \n-----------\n 7 | 8 | 9 \n"\
+  "\nJust input your names and pick a number to place your mark"\
+  ' until one of you TIC TAC TOE!!!'
+end
+
+def set_players(player_x, player_o)
+  puts "\nPlayer X name:"
+  player_x.name = gets.chomp
+  puts "\nPlayer O name:"
+  player_o.name = gets.chomp
+end
+
+def ask_move(player, board)
+  puts "\nMake your move #{player}!"
+  puts "\nYou can select a number between 1 and 9"
+  puts board.current_board
+end
+
+def make_input(player, board)
+  valid = false
+  taken_message = 'The position is already taken. Try again with other position.'
+  invalid_message = 'That input is invalid. Try again using a number between 1 and 9.'
+  until valid
+    input = gets.chomp.to_i
+    if input.between?(1, 9) && player.check_position?(input, board)
+      valid = true
+    else
+      message = input.between?(1, 9) ? taken_message : invalid_message
+      puts message
+    end
+  end
+  input
+end
+
+def show_winner(player, board)
+  puts "\nYou win #{player}!!!"
+  puts board.current_board
+  puts "\nGame Over."
+end
+
+def show_draw(board)
+  puts "\nThe game is draw!"
+  puts board.current_board
+  puts "\nGame Over."
+end
+
+play
 
 # rubocop : enable Layout/LineLength
 # rubocop : enable Metrics/BlockNesting
