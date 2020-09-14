@@ -3,11 +3,11 @@
 require_relative '../lib/player'
 require_relative '../lib/tic'
 
-def play
+def tictac
   board = Tic.new
   player_x = Player.new('', 'X')
   player_o = Player.new('', 'O')
-  instructions
+  game_procedure
   set_players(player_x, player_o)
   9.times do |time|
     player = time.odd? ? player_x : player_o
@@ -21,30 +21,28 @@ def play
   show_draw(board)
 end
 
-def instructions
-  puts "\nWelcome to Tic Tac Toe Game!\n"\
-  "\n 1 | 2 | 3 \n-----------\n 4 | 5 | 6 \n-----------\n 7 | 8 | 9 \n"\
-  "\nJust input your names and pick a number to place your mark"\
-  ' until one of you TIC TAC TOE!!!'
+def game_procedure
+  puts "\nWelcome to Tic Tac Toe, Please Share the Game!\n"\
+  "\n 1 | 2 | 3 \n-----------\n 4 | 5 | 6 \n-----------\n 7 | 8 | 9 \n"
 end
 
 def set_players(player_x, player_o)
-  puts "\nPlayer X name:"
+  puts "\nFirst Player name:"
   player_x.name = gets.chomp
-  puts "\nPlayer O name:"
+  puts "\nSecond Player Name:"
   player_o.name = gets.chomp
 end
 
 def ask_move(player, board)
-  puts "\nMake your move #{player}!"
-  puts "\nYou can select a number between 1 and 9"
+  puts "\nPlayer one turn #{player}!"
+  puts "\nPredict a number between 1 and 9"
   puts board.current_board
 end
 
 def make_input(player, board)
   valid = false
-  taken_message = 'The position is already taken. Try again with other position.'
-  invalid_message = 'That input is invalid. Try again using a number between 1 and 9.'
+  taken_message = 'The board position already taken, Please chose another position'
+  invalid_message = 'Please enter a valid numer'
   until valid
     input = gets.chomp.to_i
     if input.between?(1, 9) && player.check_position?(input, board)
@@ -58,16 +56,16 @@ def make_input(player, board)
 end
 
 def show_winner(player, board)
-  puts "\nYou have won the game #{player}!!!"
+  puts "\nYou have won the round #{player}!!!"
   puts board.current_board
 end
 
 def show_draw(board)
-  puts "\nThis is a draw game"
+  puts "\nYou have made Draw"
   puts board.current_board
 end
 
-play
+tictac
 
 # rubocop : enable Layout/LineLength
 # rubocop : enable Metrics/BlockNesting
