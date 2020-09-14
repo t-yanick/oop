@@ -2,7 +2,7 @@
 # rubocop : disable Metrics/BlockNesting
 
 class Tic
-  attr_accessor :player, :player1
+  attr_reader :player, :player1
   def initialize(player, player1)
     @player = player
     @player1 = player1
