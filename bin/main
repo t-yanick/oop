@@ -2,6 +2,9 @@
 # rubocop : disable Layout/LineLength
 # rubocop : disable Metrics/BlockNesting
 
+# require_relative '../lib/tic.rb'
+require_relative '../lib/player.rb'
+
 class Tic
   attr_accessor :player, :player1
   def initialize(player, player1)
@@ -37,8 +40,11 @@ class Tic
 
       if @board[tic_position[0]] == 'X'
         puts "Hello #{player} have won the game!!!"
-      else
+      elsif
         puts "Hello #{player1} have won the game!!!"
+      elsif @board.full == true
+        puts "You've both tied, #{player} and #{player1}"
+        break
       end
       return true
     end
