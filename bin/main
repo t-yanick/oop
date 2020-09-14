@@ -27,38 +27,6 @@ def game_procedure
   puts "\nWelcome to Tic Tac Toe, Please Share the Game!\n"\
   "\n 1 | 2 | 3 \n-----------\n 4 | 5 | 6 \n-----------\n 7 | 8 | 9 \n"
 end
-choice = 'y'
-while choice == 'y'
-  puts 'Welcome to Tic-Tac-Toe Game'
-  puts ''
-
-  puts 'Please Enter Your name:'
-  player = gets.strip
-  puts ''
-
-  puts "Please Enter opponent's name:"
-  player1 = gets.strip
-  # check duplicate player entry
-  while player1 == player
-    puts "#{player} is already taken. Please enter a valid name:"
-    player1 = gets.strip
-  end
-  puts ''
-choice = 'y'
-while choice == 'y'
-  puts 'Welcome to Tic-Tac-Toe Game'
-  puts ''
-
-  puts 'Please Enter Your name:'
-  player = gets.strip
-  puts ''
-
-  puts "Please Enter opponent's name:"
-  player1 = gets.strip
-  while player1 == player
-    puts "#{player} is already taken. Please enter a valid name:"
-    player1 = gets.strip!
-  end
   puts ''
 
 def set_players(player_x, player_o)
@@ -73,12 +41,6 @@ def ask_move(player, board)
   puts "\nPredict a number between 1 and 9"
   puts board.current_board
 end
-  # Game loop
-  while is_playing
-    # Printing board to the screen
-    game.display_board
-  while is_playing
-    game.display_board
 
 def make_input(player, board)
   valid = false
