@@ -2,7 +2,7 @@
 # rubocop : disable Layout/LineLength
 # rubocop : disable Metrics/BlockNesting
 
-# require_relative '../lib/tic.rb'
+require_relative '../lib/tic.rb'
 require_relative '../lib/player.rb'
 
 class Tic
@@ -21,6 +21,10 @@ class Tic
     puts '  --+---+---'
     puts "  #{@board[6]} | #{@board[7]} | #{@board[8]}"
     puts ''
+  end
+
+  def display_board
+    @board.all?(String)
   end
 
   def add_positions(piece, tic_position)
@@ -42,15 +46,14 @@ class Tic
         puts "Hello #{player} have won the game!!!"
       elsif
         puts "Hello #{player1} have won the game!!!"
-      elsif @board.full == true
-        puts "You've both tied, #{player} and #{player1}"
-        break
       end
       return true
     end
-    false
+  rescue
+  else @board.all? == false && @board[tic_position[0]] == 'X'
+        puts "You've both tied, #{player} and #{player1}"
+    end
   end
-end
 
 choice = 'y'
 while choice == 'y'

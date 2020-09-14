@@ -13,10 +13,10 @@ class Tic
      ''
   end
 
-  def full
+  def display_board
     @board.all?(String)
   end
-
+  
   def add_positions(piece, tic_position)
     if tic_position < 1 || tic_position > 9 || @board[tic_position - 1] == 'X' || @board[tic_position - 1] == 'O'
       false
