@@ -7,7 +7,7 @@ def tictac
   board = Tic.new
   player_x = Player.new('', 'X')
   player_o = Player.new('', 'O')
-  instructions
+  game_procedures
   set_players(player_x, player_o)
   9.times do |time|
     player = time.odd? ? player_x : player_o
@@ -21,9 +21,10 @@ def tictac
   show_draw(board)
 end
 
-def instructions
+def game_procedures
   puts "\nWelcome to Tic Tac Toe Game!\n"\
-  "\n 1 | 2 | 3 \n-----------\n 4 | 5 | 6 \n-----------\n 7 | 8 | 9 \n"
+  "\n 1 | 2 | 3 \n-----------\n 4 | 5 | 6 \n-----------\n 7 | 8 | 9 \n
+\Please Enter Player names below to start"
 end
 
 def set_players(player_x, player_o)
