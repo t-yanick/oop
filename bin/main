@@ -64,13 +64,10 @@ def show_winner(player, board)
 end
 
 def show_draw(board)
-  puts "\nYou have made Draw"
+  puts "\nThe game is draw!"
   puts board.current_board
-    puts ''
-    game.display_board
-    puts ''
-    is_playing = false
-  end
+  puts "\nGame Ended."
+end
 
 tictac
 
