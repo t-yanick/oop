@@ -2,21 +2,15 @@
 # rubocop : disable Metrics/BlockNesting
 
 class Tic
-  attr_reader :player, :player1
-  def initialize(player, player1)
-    @player = player
-    @player1 = player1
-    @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    @winner = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
-  end
+  attr_accessor :board
 
   def display_board
-    puts "  #{@board[0]} | #{@board[1]} | #{@board[2]}"
-    puts '  --+---+---'
-    puts "  #{@board[3]} | #{@board[4]} | #{@board[5]}"
-    puts '  --+---+---'
-    puts "  #{@board[6]} | #{@board[7]} | #{@board[8]}"
-    puts ''
+     "  #{@board[0]} | #{@board[1]} | #{@board[2]}"
+     '  --+---+---'
+     "  #{@board[3]} | #{@board[4]} | #{@board[5]}"
+     '  --+---+---'
+     "  #{@board[6]} | #{@board[7]} | #{@board[8]}"
+     ''
   end
 
   def add_positions(piece, tic_position)
@@ -35,9 +29,9 @@ class Tic
       end
 
       if @board[tic_position[0]] == 'X'
-        puts "Hello #{player} have won the game!!!"
+        "Hello #{player} have won the game!!!"
       else
-        puts "Hello #{player1} have won the game!!!"
+        "Hello #{player1} have won the game!!!"
       end
       return true
     end
@@ -47,10 +41,10 @@ end
 
 choice = 'y'
 while choice == 'y'
-  puts 'Welcome to Tic-Tac-Toe Game'
-  puts ''
+  'Welcome to Tic-Tac-Toe Game'
+  ''
 
-  puts 'Please Enter Your name:'
+  'Please Enter Your name:'
   player = gets.strip
   puts ''
 
