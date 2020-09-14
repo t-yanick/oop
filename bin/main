@@ -1,7 +1,80 @@
 #!/usr/bin/env ruby
+<<<<<<< HEAD
 
 require_relative '../lib/player'
 require_relative '../lib/tic'
+||||||| 86f2659
+# rubocop : disable Layout/LineLength
+# rubocop : disable Metrics/BlockNesting
+
+class Tic
+  attr_accessor :player, :player1
+  def initialize(player, player1)
+    @player = player
+    @player1 = player1
+    @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    @winner = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+  end
+
+  def display_board
+    puts "  #{@board[0]} | #{@board[1]} | #{@board[2]}"
+    puts '  --+---+---'
+    puts "  #{@board[3]} | #{@board[4]} | #{@board[5]}"
+    puts '  --+---+---'
+    puts "  #{@board[6]} | #{@board[7]} | #{@board[8]}"
+    puts ''
+  end
+
+  def add_positions(piece, tic_position)
+    if tic_position < 1 || tic_position > 9 || @board[tic_position - 1] == 'X' || @board[tic_position - 1] == 'O'
+      false
+    else
+      @board[tic_position - 1] = piece
+      true
+    end
+  end
+
+  def check_winner
+    @winner.each do |tic_position|
+      unless @board[tic_position[0]] == @board[tic_position[1]] && @board[tic_position[1]] == @board[tic_position[2]] && (@board[tic_position[0]] == 'X' || @board[tic_position[0]] == 'O')
+        next
+      end
+=======
+# rubocop : disable Layout/LineLength
+# rubocop : disable Metrics/BlockNesting
+class Tic
+  attr_accessor :player, :player1
+  def initialize(player, player1)
+    @player = player
+    @player1 = player1
+    @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    @winner = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+  end
+
+  def display_board
+    puts "  #{@board[0]} | #{@board[1]} | #{@board[2]}"
+    puts '  --+---+---'
+    puts "  #{@board[3]} | #{@board[4]} | #{@board[5]}"
+    puts '  --+---+---'
+    puts "  #{@board[6]} | #{@board[7]} | #{@board[8]}"
+    puts ''
+  end
+
+  def add_positions(piece, tic_position)
+    if tic_position < 1 || tic_position > 9 || @board[tic_position - 1] == 'X' || @board[tic_position - 1] == 'O'
+      false
+    else
+      @board[tic_position - 1] = piece
+      true
+    end
+  end
+
+  def check_winner
+    @winner.each do |tic_position|
+      unless @board[tic_position[0]] == @board[tic_position[1]] && @board[tic_position[1]] == @board[tic_position[2]] && (@board[tic_position[0]] == 'X' || @board[tic_position[0]] == 'O')
+        next
+      end
+>>>>>>> development
 
 def tictac
   board = Tic.new
@@ -21,10 +94,48 @@ def tictac
   show_draw(board)
 end
 
+<<<<<<< HEAD
 def game_procedure
   puts "\nWelcome to Tic Tac Toe, Please Share the Game!\n"\
   "\n 1 | 2 | 3 \n-----------\n 4 | 5 | 6 \n-----------\n 7 | 8 | 9 \n"
 end
+||||||| 86f2659
+choice = 'y'
+while choice == 'y'
+  puts 'Welcome to Tic-Tac-Toe Game'
+  puts ''
+
+  puts 'Please Enter Your name:'
+  player = gets.strip
+  puts ''
+
+  puts "Please Enter opponent's name:"
+  player1 = gets.strip
+  # check duplicate player entry
+  while player1 == player
+    puts "#{player} is already taken. Please enter a valid name:"
+    player1 = gets.strip
+  end
+  puts ''
+=======
+choice = 'y'
+while choice == 'y'
+  puts 'Welcome to Tic-Tac-Toe Game'
+  puts ''
+
+  puts 'Please Enter Your name:'
+  player = gets.strip
+  puts ''
+
+  puts "Please Enter opponent's name:"
+  player1 = gets.strip
+  # check duplicate player entry
+  while player1 == player
+    puts "#{player} is already taken. Please enter a valid name:"
+    player1 = gets.strip!
+  end
+  puts ''
+>>>>>>> development
 
 def set_players(player_x, player_o)
   puts "\nFirst Player name:"
@@ -33,11 +144,21 @@ def set_players(player_x, player_o)
   player_o.name = gets.chomp!
 end
 
+<<<<<<< HEAD
 def ask_move(player, board)
   puts "\nPlayer one turn #{player}!"
   puts "\nPredict a number between 1 and 9"
   puts board.current_board
 end
+||||||| 86f2659
+  # Game loop
+  while is_playing
+    # Printing board to the screen
+    game.display_board
+=======
+  while is_playing
+    game.display_board
+>>>>>>> development
 
 def make_input(player, board)
   valid = false
@@ -60,9 +181,34 @@ def show_winner(player, board)
   puts board.current_board
 end
 
+<<<<<<< HEAD
 def show_draw(board)
   puts "\nYou have made Draw"
   puts board.current_board
+||||||| 86f2659
+    puts ''
+    game.display_board
+    puts ''
+    is_playing = false
+  end
+  # User Choice to restart the game or not
+  choice = nil
+  while choice != 'y' && choice != 'n'
+    puts 'Would you like to start a new game?(y/n)'
+    choice = gets.strip.downcase
+  end
+=======
+    puts ''
+    game.display_board
+    puts ''
+    is_playing = false
+  end
+  choice = nil
+  while choice != 'y' && choice != 'n'
+    puts 'Would you like to start a new game?(y/n)'
+    choice = gets.strip.downcase
+  end
+>>>>>>> development
 end
 
 tictac
