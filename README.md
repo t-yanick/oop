@@ -44,13 +44,13 @@ The Screen will display a welcome board, then Player one is the symbol 'X' and p
 
 A 3x3 grid is displayed on the terminal and the first player chooses a number to place his symbol on that number's position
 
-The players take turns in order to try to make an uninterrupted row, column or diagonal.
-
 <img src = "images/2.png">
+
+The player which does that first wins!
 
 <img src = "images/3.png">
 
-The player which does that first wins!
+The players take turns in order to try to make an uninterrupted row, column or diagonal.
 
 <img src = "images/4.png">
 
