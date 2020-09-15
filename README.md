@@ -20,7 +20,7 @@ In this project, it is assigned for us to create a Tic Tac Toe game using only R
 # Setup
 Open Terminal
 
-Run git clone https://github.com/t-yanick/oop/tree/milestone_1
+Run git clone <a href ="https://github.com/t-yanick/oop/tree/milestone_1">Issues Page</a>
 
 Run cd lib
 
