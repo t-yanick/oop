@@ -20,30 +20,29 @@ In this project, it is assigned for us to create a Tic Tac Toe game using only R
 # Setup
 Open Terminal
 
-Run git clone https://github.com/t-yanick/oop/tree/milestone_1
+Run git clone <a href ="https://github.com/t-yanick/oop/tree/milestone_1">Repository</a>
 
 Run cd lib
 
 Run ruby bin/main
 
 # Game Rules
-Each player only can choose one position per turn
-You are not allowed to select a position if another player already have a mark there
-First player is the 'X'
-Second player is the 'O'
-Win how complete a line with the same symbol 'X X X' or 'O O O '
-If nobody wins after all positions have a symbol it will be a draw Each player only can choose one position per turn
+- The Game will launch a Board on the screen
+- Each player can only choose one position per turn
+- You are not allowed to select a position if another player already have a mark there
+- First player is the 'X'
+- Second player is the 'O'
+- Win when a complete line has the same symbols 'X X X' or 'O O O '
+- If nobody wins after all positions have a symbol it will be a draw.
 
-# Game instructions
-The player has the option to play or to exit. If the player decides to play, these steps follow:
+# Game instructions (Screenshots)
+The Players follow the below instructions to play the game:
 
-Player one is the symbol 'X' and player two is the symbol 'O' From the below screen, Players can add thier Names
+The Screen will display a welcome board, then Player one is the symbol 'X' and player two is the symbol 'O' From the below screen, Players can add thier names. 
 
 <img src = "images/1.png">
 
 A 3x3 grid is displayed on the terminal and the first player chooses a number to place his symbol on that number's position
-
-The players take turns in order to try to make an uninterrupted row, column or diagonal.
 
 <img src = "images/2.png">
 
@@ -51,9 +50,13 @@ The player which does that first wins!
 
 <img src = "images/3.png">
 
+The players take turns in order to try to make an uninterrupted row, column or diagonal.
+
+<img src = "images/4.png">
+
 If all spaces are chosen and there is no winner, it is considered a draw
 
-Once the game finish, the players have the option to restart game or exit
+<img src = "images/5.png">
 
 # Authors
 👤 Bbosa Muhamood
@@ -69,7 +72,7 @@ Once the game finish, the players have the option to restart game or exit
 ### 🤝 Contributing
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the issues page https://github.com/t-yanick/oop/issues.
+Feel free to check the issues page <a href="https://github.com/t-yanick/oop/issues">Issues Pages</a>
 
 # Show your support
 Give a ⭐️ if you like this project!
