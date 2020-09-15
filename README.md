@@ -20,7 +20,7 @@ In this project, it is assigned for us to create a Tic Tac Toe game using only R
 # Setup
 Open Terminal
 
-Run git clone <a href ="https://github.com/t-yanick/oop/tree/milestone_1">Issues Page</a>
+Run git clone <a href ="https://github.com/t-yanick/oop/tree/milestone_1">Repository</a>
 
 Run cd lib
 
@@ -72,7 +72,7 @@ If all spaces are chosen and there is no winner, it is considered a draw
 ### 🤝 Contributing
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the issues page https://github.com/t-yanick/oop/issues.
+Feel free to check the issues page <a href="https://github.com/t-yanick/oop/issues">Issues Pages</a>
 
 # Show your support
 Give a ⭐️ if you like this project!
