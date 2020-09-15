@@ -27,13 +27,13 @@ Run cd lib
 Run ruby bin/main
 
 # Game Rules
-- The will Launch a Board on the screen
-- Each player only can choose one position per turn
+- The Game will launch a Board on the screen
+- Each player can only choose one position per turn
 - You are not allowed to select a position if another player already have a mark there
 - First player is the 'X'
 - Second player is the 'O'
-- Win how complete a line with the same symbol 'X X X' or 'O O O '
-- If nobody wins after all positions have a symbol it will be a draw Each player only can choose one position per turn
+- Win when a complete line has the same symbols 'X X X' or 'O O O '
+- If nobody wins after all positions have a symbol it will be a draw.
 
 # Game instructions (Screenshots)
 The Players follow the below instructions to play the game:
