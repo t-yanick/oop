@@ -1,10 +1,18 @@
 # TIC TAC TOE GAME
-This is the third collaborative project from the Ruby module from the Microverse program, It's a Tic Tac Toe game with User Interface,
+In this project, it is assigned for us to create a Tic Tac Toe game using only Ruby to increase our knowledge on the OOP concepts. This project was split in 4 milestones, which were:
+
+ - Setting up the project
+ - Designing the user interface
+ - Creating the game logic
+ - Writing the game instructions
+ 
+ The main goal of this project is to asure I master the methods ruby provides and to learn how to replicate them using basic coding knowledge.
 
 # Built With
 - Ruby
 - Rubocop
 - OOP
+- Linters
 
 # Prerequisites
 - Browser (Google Chrome, Mozilla Firefox, Safari or any other browser)
@@ -14,9 +22,9 @@ Open Terminal
 
 Run git clone https://github.com/t-yanick/oop/tree/milestone_1
 
-Run cd library
+Run cd lib
 
-Run ruby board.rb
+Run ruby bin/main
 
 # Game Rules
 Each player only can choose one position per turn
